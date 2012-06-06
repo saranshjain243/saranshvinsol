@@ -1,0 +1,94 @@
+<html>
+<head>
+<script type="text/javascript">
+num=0;
+var1=0;
+var2=0;flag=0;
+function add(x)
+{
+if((num==0)&&(var1!=0))
+document.getElementById("demo").innerHTML="";
+if(flag==1)
+{
+document.getElementById("demo").innerHTML="";
+flag=0;
+}
+document.getElementById("demo").innerHTML+=x;
+num=num*10+x;
+}
+
+function calculate(a1)
+{
+	if(flag==1)
+		alert("Enter operand first");
+	if(a1==6)
+	{
+		document.getElementById("demo").innerHTML="";
+		var1=0;
+		num=0;
+		var2=0;
+		a=0;
+	}
+	if(var1==0)
+	{	
+		var1=num;
+		num=0;
+		if(a1!=5)
+		a=a1;
+document.getElementById("demo").innerHTML="<br>";
+	}
+	else if(var2==0)
+	{
+		var2=num;
+		num=0;
+		switch(a)
+		{
+			case 1: var1=var1+var2;
+			var2=0;
+			break;
+			case 2: var1=var1-var2;
+			var2=0;
+			break;
+			case 3: var1=var1/var2;
+			var2=0;
+			break;
+			case 4: var1=var1*var2;
+			var2=0;
+			break;
+		}
+a=a1;
+		if(a1==5)
+			{
+				document.getElementById("demo").innerHTML="Result = "+var1;
+				var1=0;
+				var2=0;
+				num=0;
+				a=0;
+				flag=1;
+			}
+	}
+}
+
+</script>	
+</head>	
+<body>
+<p id="demo"></p>
+<button type="button" onclick="add(1)">1</button>
+<button type="button" onclick="add(2)">2</button>
+<button type="button" onclick="add(3)">3</button>
+<button type="button" onclick="calculate(1)">+</button><br>
+<button type="button" onclick="add(4)">4</button>
+<button type="button" onclick="add(5)">5</button>
+<button type="button" onclick="add(6)">6</button>
+<button type="button" onclick="calculate(2)">-</button><br>
+<button type="button" onclick="add(7)">7</button>
+<button type="button" onclick="add(8)">8</button>
+<button type="button" onclick="add(9)">9</button>
+<button type="button" onclick="calculate(3)">/</button><br>
+<button type="button" onclick="add(0)">0</button>
+<button type="button" onclick="calculate(4)">*</button>
+<button type="button" onclick="calculate(5)">=</button>
+<button type="button" onclick="calculate(6)">clr</button>
+</body>
+</html>
+
